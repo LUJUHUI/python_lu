@@ -27,8 +27,18 @@ def new_card():
 	# 1.提示用户输入名片信息
 	name_str = input("请输入姓名：")
 	telphone_str = input("请输入手机号：")
+	if len(telphone_str) != 11:
+		print("请输入正确的11位手机号码！" + "\n")
+		telphone_str = input("请输入手机号：")
+	else:
+		return telphone_str
 	wechat_str = input("请输入微信号：")
 	email_str = input("请输入邮箱：")
+	if email_str.endswith("@163.com") or email_str.endswith("@qq.com"):
+		return email_str
+	else:
+		print("请输入以@163.com或者@qq.com结尾的邮箱！" + "\n")
+		email_str = input("请输入邮箱：")
 
 	# day2.使用用户输入的信息创建一个名片字典
 	card_dic = {"name": name_str,
